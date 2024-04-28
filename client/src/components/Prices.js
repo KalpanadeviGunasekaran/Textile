@@ -6,12 +6,12 @@ export const Prices = [
     },
     {
       _id: 1,
-      name: "Rs:21-39",
+      name: "Rs:21 to 39",
       array: [20, 39],
     },
     {
       _id: 2,
-      name: "Rs:40-150",
+      name: "Rs:40 to 150",
       array: [40, 59],
     },
     {
