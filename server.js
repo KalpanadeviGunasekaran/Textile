@@ -30,7 +30,7 @@ app.use("/api/v1/product", productRoutes);
 
 //static files
 // Define the absolute directory path to the client build directory
-const clientBuildPath = path.join(__dirname, "client", "build");
+const clientBuildPath = new URL("./client/build", import.meta.url).pathname;
 
 // Serve static files from the client build directory
 app.use(express.static(clientBuildPath));
@@ -39,7 +39,6 @@ app.use(express.static(clientBuildPath));
 app.get('*', function(req, res) {
   res.sendFile(path.join(clientBuildPath, "index.html"));
 });
-
 //rest api
 app.get("/", (req, res) => {
   res.send("<h1>Welcome to ecommerce app</h1>");
