@@ -29,9 +29,15 @@ app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
 //static files
-app.use(express.static(path.join(import.meta.url, "./client/build")));
-app.get('*', function (req, res) {
-  res.sendFile(path.join(import.meta.url, "./client/build/index.html"));
+// Define the absolute directory path to the client build directory
+const clientBuildPath = path.join(__dirname, "client", "build");
+
+// Serve static files from the client build directory
+app.use(express.static(clientBuildPath));
+
+// Route handler for all other requests, serving index.html
+app.get('*', function(req, res) {
+  res.sendFile(path.join(clientBuildPath, "index.html"));
 });
 
 //rest api
